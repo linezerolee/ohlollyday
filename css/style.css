@@ -724,6 +724,10 @@ section#issue .column:nth-of-type(4) .inner{
         flex : 100%;
         text-align: center;
     }
+
+    section#stroy .row .column .inner .textbox p {
+        text-align: center;
+    }
     section#stroy .row .column .inner .box img {
         width : 50%;
     }
