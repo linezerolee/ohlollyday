@@ -110,7 +110,7 @@ span {
 
 img { 
     width : 100%;
-    transition : 1s ease;
+
 }
 
 /* common ui */
@@ -126,15 +126,46 @@ img {
     border : 2px solid;
     border-radius: 26px;
     padding : 15px;
-    margin-bottom: 50px;
     background: transparent;
     text-transform: uppercase;
     transition: 0.5s;
+    z-index: 999;
 }
 
 .img_box { 
     overflow : hidden;
 }
+
+/* arrow btn */
+.go_to_top {
+    position : fixed;
+    bottom : 50px;
+    right : 50px;
+    width : 40px;
+    height : 40px;
+    line-height: 40px;
+    color : var(--color-light-gray);
+    background-color: var(--color-white);
+    border-radius: 50%; 
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition : opacity 300ms ease-in;
+    z-index: 9999;
+    text-align: center;
+}
+
+.go_to_top a{
+    width : 40px;
+    height : 40px;
+    font-size: 25px;
+}
+  
+.go_to_top i { color :var(--color-gray); }
+  
+.on {
+    opacity: 1;
+    pointer-events: all;}
 
 /* header area */
 
@@ -144,7 +175,7 @@ img {
     width : 100%;
     background : var(--color-black);
     margin : 0 auto;
-    z-index: 800;
+    z-index: 9999;
     top : 0;
 }
 
@@ -155,13 +186,15 @@ img {
 .logo {
     float : left;
     height : 60px;
-    line-height: 65px;
+    line-height: 65px;  
 }
 
 .logo a {
-    padding-left : 20px;
+    display: inline-block;
+    margin-left : 20px;
     width : 200px;
-    height : 60px;
+    height : 50px;
+    
     
 }
 .logo a img{
@@ -211,6 +244,19 @@ img {
 
 #gnb ul li:hover::before { width : 70%; }
 
+/* toggle btn */
+.toggle_btn {
+    position : absolute;
+    top : 16px;
+    right : 32px;
+    font-size: 24px;
+    color : var(--color-white);
+    display: none;
+    cursor: pointer;
+}
+
+
+
 
 /* section common style */
 section {
@@ -243,6 +289,8 @@ section .row > h2{
     height: 80px;
     line-height: 80px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(-30%);
 }
 
 section .row > h2:before{
@@ -254,6 +302,14 @@ section .row > h2:before{
     bottom: 1px;
     left: calc( 50% - 20px );
     background-color: var(--color-blue);
+}
+
+
+/* 제이쿼리 효과 */
+section.active .row > h2 {
+    opacity: 1;
+    transition : .2s ease-in;
+    transform: translateY(0%);
 }
 
 section .row .column{
@@ -291,17 +347,21 @@ section .row .column .inner.line {
 /* intro */
 section#intro { 
     background-color: var(--color-light-blue);
+    position : relative;
 }
 
 section#intro .swiper-container {
     width : 100%;
     padding-top : 60px;
+    position : static;
     
 }
 
 section#intro .swiper-slide {
-    height: 100%;
-    min-height: 60vh;
+    position : static;
+    width : 100%;
+    height : 0;
+    padding-top : calc( 541 / 1388 * 100%);
     background-repeat: no-repeat;
     background-position: center center;
     background-size : cover;
@@ -347,7 +407,29 @@ section#about .row .inner p {
     color : var(--color-white);
 }
 
-/* section row column style */
+/* 제이쿼리 효과 */
+section#about .row h2,
+section#about .row img,
+section#about .row h3,
+section#about .row p{ 
+    opacity: 0;
+    transition : .7s;
+    transform : translateY(+10%);
+}
+
+section#about.active .row h2,
+section#about.active .row img,
+section#about.active .row h3,
+section#about.active .row p{
+    opacity: 1; 
+    transform: translateY(0%);
+}
+
+section#about.active .row h2 { transition-delay: .2s ease-in-out;}
+section#about.active .row img { transition-delay: .5s ease-in-out;}
+section#about.active .row h3 { transition-delay: .6s ease-in-out;}
+section#about.active .row p { transition-delay: .7s ease-in-out;}
+
 
 
 /* Best Seller */
@@ -359,15 +441,16 @@ section#bestseller .row > h2 {
     color : var(--color-orange);
 }
 
-
 section#bestseller .row .column {
     flex : 1;
     justify-content: space-around;
 }
+section#bestseller .row .column img{
+    transition : 1s ease;   
+}
 
 section#bestseller .row .column img:hover {
-    transform: scale(1.2);
-    
+    transform: scale(1.2);  
 }
 
 /* Products */
@@ -442,6 +525,7 @@ section#stroy .row .column .inner {
 
 
 section#stroy .row .column .inner .box {
+    min-height : 310px;
     flex : 1;
 }
 
@@ -517,19 +601,19 @@ section#issue .row h2 {
     color : var(--color-orange);
 }
 
-section#issue .row .button {
+section#issue .button {
     color : var(--color-orange);
-    margin-bottom: 0;
+    margin-bottom: 50px;
 }
 
-section#issue .row .button:hover {
+section#issue .button:hover {
     color : var(--color-yellow);
     background-color: var(--color-orange);
     border : 2px solid var(--color-orange);
 }
 
 section#issue .row .column {
-    flex : 1;
+    flex : 25%;
     justify-content: space-between;
 }
 
@@ -555,9 +639,10 @@ section#issue .column:nth-of-type(4) .inner{
 }
 
 #footer .container {
-    margin : 0 auto;
-    width : 1140px;
+    display: flex;
     text-align: center;
+    justify-content: center;
+    
 }
 
 /* footer top */
@@ -567,20 +652,23 @@ section#issue .column:nth-of-type(4) .inner{
 }
 
 #footer .container .row {
+    width : 1140px;
+    margin : 0 auto;
     display: flex;
-    justify-content: space-between;
     flex-wrap : wrap;
+
 }
 
 #footer .container .row .column {
     flex : 25%;
-    min-width: 280px;
     padding : 0 10px;
     margin-bottom: 30px;
     text-align: center;
+    justify-content: space-between;
+  
 }
 
-/* footer site map */
+/* footer */
 
 #footer .container .row .column h4{
     position: relative;
@@ -600,7 +688,6 @@ section#issue .column:nth-of-type(4) .inner{
     font-weight: var(--weight-semi-bold);
     cursor: pointer;
 }
-/* contact us */
 
 /* follow me */
 
@@ -628,24 +715,68 @@ section#issue .column:nth-of-type(4) .inner{
         left :20%;
       }
       
-      .mySwiper2  .swiper-button-next{
+    .mySwiper2  .swiper-button-next{
         right :20%;
       }
 
     section#stroy .row .column .inner .box {
-        min-height : 310px;
+        min-height : 220px;
         flex : 100%;
         text-align: center;
     }
     section#stroy .row .column .inner .box img {
         width : 50%;
-     }
+    }
+
+    #footer .logo {
+        display: none;
+    }
     
 }
 
 /* tablet pc */
 @media screen and ( max-width: 1024px ){
+
+    /* gnb 영역 */
     #gnb { display: none;}
+
+    .toggle_btn { display: block;}
+
+    #gnb { 
+        float : none;
+        display: flex; 
+        flex-direction: column;
+        width : 100%; 
+    }
+
+    #gnb ul {
+        flex-direction: column;
+        text-align: center;
+        width : 100%;
+        display: none;
+    }
+
+    #gnb ul.open {
+        display : block;
+    }
+
+    #gnb ul li {
+        display: block;
+        float : none;
+    }
+
+    #gnb ul li:after,
+    #gnb ul li:before {
+        display: none;
+    }
+
+    #gnb ul li:hover {
+        background: var(--color-dark-gray);
+    }
+
+    section#intro .swiper-slide {
+        background-size: 140%;
+    }
 
     .swiper-button-prev,
     .swiper-button-next{
@@ -663,7 +794,99 @@ section#issue .column:nth-of-type(4) .inner{
         --font-extra-small: 18px;
         --font-small : 16px;
         --font-micro : 14px;
-        
+    }
+    section {
+        min-height : 60vh;
     }
 
-}
+    section .row {
+        padding-bottom : 30px;
+    }
+    /* intro */
+
+    .swiper-pagination-bullet {
+        width : 10px;
+        height : 10px;
+    }
+
+    /* bestseller */
+    section#bestseller .row .inner {
+        margin : 0 10px 0;
+        padding : 0;
+        border-radius: 0;
+    }
+
+    /* prodcuts */
+    section#products .row {
+        padding : 100px 0;
+    }
+
+    /* campaign */
+    section#campaign .swiper-slide .box img {
+        width : 300px;
+        height : auto;
+    }
+    /* issue */
+    section#issue .row {
+        padding-bottom : 120px;
+    }
+
+    section#issue .row .column{
+        flex : 50%;
+    }
+
+    section#issue .row .column .inner{
+        margin : 10px;
+    }
+
+    section#issue .row .column:hover  {
+        transform: translateY(-2%);
+        transition: .5s ease-in-out;
+    }
+
+    #footer .container .row {
+        flex-direction: column;
+    }
+
+    @media screen and ( max-width: 480px ) {
+        :root {
+            --font-large : 20px;
+            --font-medium : 20px;
+            --font-regular : 16px;
+            --font-extra-small: 16px;
+            --font-small : 16px;
+            --font-micro : 14px;
+        }
+
+        .logo a img{
+            width : 140px;
+        }
+        section#about .row .inner p {
+            line-height: 28px;
+        }
+
+        section#bestseller .row {
+            flex-direction: column;
+        }
+
+        section#bestseller .row .inner {
+            margin : 15px;
+            padding : 15px;
+            border-radius: 10px;
+        }
+        section#bestseller .row .column img{
+            width : 100%;
+        }
+
+        section#stroy .row .column .inner .box img {
+            width : 100%;
+        }
+
+        section#issue .row .column{
+            flex : 100%;
+        }
+        
+        section#campaign .swiper-slide .inner p {
+            width : 300px;
+        }
+}       
