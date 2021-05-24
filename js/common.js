@@ -1,12 +1,11 @@
 $(function(){
     const addTop = 150;
-    let sectionAbout = $('#about');
 
     $("nav ul li a,.back_to_top a,a").click(function(){
-        console.log($(this.hash))
+        //console.log($(this.hash))
         let thisElem = $(this.hash);
         let offsetElem = thisElem.offset();
-        console.log(offsetElem.top)
+        //console.log(offsetElem.top)
         $("html,body").stop();
         $("html,body").animate({scrollTop : offsetElem.top},1200);
         });
@@ -18,12 +17,11 @@ $(function(){
         }else {
             $("ul").addClass('open');
         }
-        
-       })
-    
+       });
+
     //스크롤 시 애니메이션 작동
     let wHeight = $(window).innerHeight();
-    console.log("window height: "+wHeight)
+    //console.log("window height: "+wHeight)
     $(window).scroll(function(){
         let thisScrollTop = $(this).scrollTop();
         $("section").each(function(){
@@ -33,9 +31,10 @@ $(function(){
         }
         });
     });
+
         //go_to_top 버튼 애니메이션 효과
         $(window).scroll(function(){
-        console.log($(this).scrollTop())
+        //console.log($(this).scrollTop())
         if($(this).scrollTop() == 0){
             $(".go_to_top").removeClass("on")
         }else{

@@ -239,13 +239,17 @@ img {
     bottom : 20%;
     left : 50%;
     transform: translateX(-50%);
-    width : 00%;
+    width : 0%;
     height : 1px;
     background-color: var(--color-white);
     transition : all .3s ease-out;
 }
 
 #gnb ul li:hover::before { width : 70%; }
+
+#gnb ul li.menuline::before{
+    width : 70%;
+}
 
 /* toggle btn */
 .toggle_btn {
@@ -760,6 +764,7 @@ section#issue .column:nth-of-type(4) .inner{
         text-align: center;
         width : 100%;
         display: none;
+        
     }
 
     #gnb ul.open {
