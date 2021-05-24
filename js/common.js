@@ -13,7 +13,11 @@ $("nav ul li a,.back_to_top a,a").click(function(){
 
     //테블릿 화면 메뉴 버튼 효과
     $(".toggle_btn").click(function(){
-        $("#gnb ul").toggle('open');
+        $("#gnb ul").addClass('on');
+        });
+
+    $(".toggle_btn").click(function(){
+        $("#gnb ul").removeClass('on');
         });
     
     //스크롤 시 애니메이션 작동
