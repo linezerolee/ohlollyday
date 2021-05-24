@@ -18,6 +18,13 @@ $(function(){
             $("ul").addClass('open');
         }
        });
+    
+    //테블릿 화면 메뉴 클릭 시, 메뉴창 닫힘
+    $('ul li a').click(function(){
+        if($('ul').hasClass('open')){
+            $('ul').removeClass('open');
+        }
+    })
 
     //스크롤 시 애니메이션 작동
     let wHeight = $(window).innerHeight();
