@@ -2,23 +2,24 @@ $(function(){
     const addTop = 150;
     let sectionAbout = $('#about');
 
-$("nav ul li a,.back_to_top a,a").click(function(){
-    console.log($(this.hash))
-    let thisElem = $(this.hash);
-    let offsetElem = thisElem.offset();
-    console.log(offsetElem.top)
-    $("html,body").stop();
-    $("html,body").animate({scrollTop : offsetElem.top},1200);
-    });
+    $("nav ul li a,.back_to_top a,a").click(function(){
+        console.log($(this.hash))
+        let thisElem = $(this.hash);
+        let offsetElem = thisElem.offset();
+        console.log(offsetElem.top)
+        $("html,body").stop();
+        $("html,body").animate({scrollTop : offsetElem.top},1200);
+        });
 
     //테블릿 화면 메뉴 버튼 효과
     $(".toggle_btn").click(function(){
-        $("#gnb ul").addClass('open');
-        });
-
-    $(".toggle_btn").click(function(){
-        $("#gnb ul").removeClass('open');
-        });
+        if($("ul").hasClass('open')){
+            $("ul").removeClass('open');
+        }else {
+            $("ul").addClass('open');
+        }
+        
+       })
     
     //스크롤 시 애니메이션 작동
     let wHeight = $(window).innerHeight();

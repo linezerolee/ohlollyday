@@ -167,6 +167,9 @@ img {
     opacity: 1;
     pointer-events: all;}
 
+.open {
+    display: block;
+}    
 /* header area */
 
 #header {
@@ -742,7 +745,6 @@ section#issue .column:nth-of-type(4) .inner{
 @media screen and ( max-width: 1024px ){
 
     /* gnb 영역 */
-    #gnb { display: none;}
 
     .toggle_btn { display: block;}
 
@@ -760,7 +762,7 @@ section#issue .column:nth-of-type(4) .inner{
         display: none;
     }
 
-    .open {
+    #gnb ul.open {
         display : block;
     }
 
