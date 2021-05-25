@@ -652,7 +652,7 @@ section#issue .column:nth-of-type(4) .inner{
 
 #footer .footer_top {
     padding : 30px 0 30px;
-    border-bottom: 1px solid var(--color-dark-white);
+    background : var(--color-dark-white);
 }
 
 #footer .container {
