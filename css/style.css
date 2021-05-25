@@ -724,7 +724,6 @@ section#issue .column:nth-of-type(4) .inner{
     font-size : 14px;
     color : var(--color-dark-gray);
     margin : 0;
-    background : var(--)
 }
 
 /* 반응형 style */
@@ -878,6 +877,7 @@ section#issue .column:nth-of-type(4) .inner{
     #footer .container .row {
         flex-direction: column;
     }
+    }
 
     @media screen and ( max-width: 480px ) {
         :root {
@@ -920,4 +920,4 @@ section#issue .column:nth-of-type(4) .inner{
         section#campaign .swiper-slide .inner p {
             width : 300px;
         }
-}       
+    }       
