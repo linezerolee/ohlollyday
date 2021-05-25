@@ -666,7 +666,7 @@ section#issue .column:nth-of-type(4) .inner{
 
 #footer > .container {
     padding : 20px 0;
-    background-color : var(--color-dark-white);
+    background-color : var(--color-light-white);
 }
 
 #footer .container .row {
