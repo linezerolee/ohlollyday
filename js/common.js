@@ -1,5 +1,5 @@
 $(function(){
-    const addTop = 150;
+    const addTop = 400;
     //클릭 시, 해당 섹션 이동
     $("nav ul li a, .go_to_top a, .button").click(function(){
         //console.log($(this.hash))
