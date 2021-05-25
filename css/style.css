@@ -367,8 +367,8 @@ section#intro .swiper-container {
 section#intro .swiper-slide {
     position : static;
     width : 100%;
-    height : 800px;
-    /* padding-top : calc( 1000 / 2558 * 100%); */
+    height : 0;
+    padding-top : calc( 800 / 1200 * 100%);
     background-repeat: no-repeat;
     background-position: center center;
     background-size : cover;
@@ -746,6 +746,7 @@ section#issue .column:nth-of-type(4) .inner{
         min-height : 220px;
         flex : 100%;
         text-align: center;
+        padding-left : 0;
     }
 
     section#stroy .row .column .inner .textbox p {
@@ -803,10 +804,6 @@ section#issue .column:nth-of-type(4) .inner{
         background: var(--color-dark-gray);
     }
 
-    section#intro .swiper-slide {
-        background-size: 140%;
-    }
-
     .swiper-button-prev,
     .swiper-button-next{
         display: none;
@@ -832,6 +829,30 @@ section#issue .column:nth-of-type(4) .inner{
 
     section .row {
         padding-bottom : 30px;
+    }
+
+    section#intro {
+        min-height: 40vh;
+    }
+
+    /* mainbanner */
+    section#intro .swiper-slide {
+        position : static;
+        width : 100%;
+        height : 0;
+        padding-top : calc( 800 / 1000 * 100%);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size : cover;
+    }
+    section#intro .swiper-slide.bg2 {
+        background-image : url('../img/mainbanner/mainbanner_02_m.png');
+    }
+    section#intro .swiper-slide.bg3 {
+        background-image : url('../img/mainbanner/mainbanner_03_m.png');
+    }
+    section#intro .swiper-slide.bg4 {
+        background-image : url('../img/mainbanner/mainbanner_04_m.png');
     }
     /* intro */
 
