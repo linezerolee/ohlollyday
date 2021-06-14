@@ -832,7 +832,7 @@ section#issue .column:nth-of-type(4) .inner{
     }
 
     section#intro {
-        min-height: 40vh;
+        min-height: 60vh;
     }
 
     /* mainbanner */

@@ -39,6 +39,19 @@ $(function(){
         }
     })
 
+      //submenu 닫기 효과
+      let windowWidth = $(window).width();
+      function gnbClose() {
+        windowWidth = $(window).width();
+        if( windowWidth > 1200 ){
+          $("ul").removeClass('open');
+        }
+      }
+      gnbClose();
+      $(window).resize(function(){
+        gnbClose();
+      });
+
     //스크롤 시 애니메이션 작동
     let wHeight = $(window).innerHeight();
     //console.log("window height: "+wHeight)
