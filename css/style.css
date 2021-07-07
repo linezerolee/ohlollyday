@@ -186,6 +186,11 @@ img {
     opacity: .8;
 }
 
+.headerinnner{
+    margin-left : 30px;
+    margin-right : 10px;
+}
+
 .logo {
     float : left;
     height : 60px;
@@ -194,14 +199,11 @@ img {
 
 .logo a {
     display: inline-block;
-    margin-left : 20px;
     width : 200px;
-    height : 50px;
-    
-    
-}
-.logo a img{
-    width : 200px;
+    height : 60px;
+    line-height: 60px;
+    background: url('../img/logo/logo.png') no-repeat center center;
+    background-size: contain;
 }
 
 #gnb { 
@@ -255,7 +257,7 @@ img {
 .toggle_btn {
     position : absolute;
     top : 16px;
-    right : 32px;
+    right : 20px;
     font-size: 24px;
     color : var(--color-white);
     display: none;
@@ -274,6 +276,7 @@ section {
     background : var(--color-white);
     min-height : 80vh; 
     margin : 0 auto;
+    overflow: hidden;
 }
 
 section .row{
@@ -284,7 +287,7 @@ section .row{
     flex-wrap: wrap;
     width: 1410px;
     padding: 120px 0;
-    margin : 50px 0 100px 0;
+    margin : 50px 20px 100px 20px;
     z-index: 500;
 }
 
@@ -735,6 +738,10 @@ section#issue .column:nth-of-type(4) .inner{
         height : 0;
         padding-top : calc( 800 / 1200 * 100%);
     }
+    .headerinnner{
+        margin-left : 20px;
+        margin-right : 10px;
+    }
 
     #gnb ul li a{
         padding: 0 12px;
@@ -776,6 +783,8 @@ section#issue .column:nth-of-type(4) .inner{
     /* gnb 영역 */
 
     .toggle_btn { display: block;}
+
+
 
     #gnb { 
         float : none;
@@ -911,7 +920,7 @@ section#issue .column:nth-of-type(4) .inner{
             --font-micro : 14px;
         }
 
-        .logo a img{
+        .logo a{
             width : 140px;
         }
         section#about .row .inner p {
